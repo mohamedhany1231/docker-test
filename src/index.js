@@ -56,7 +56,7 @@ pgClient
 // app listen
 app.get("/", (req, res, next) => {
   redisClient.set("products", "cached products");
-  res.send("<h1>Welcome!  prod </h1>");
+  res.send("<h1>Welcome!  prod from aws </h1>");
 });
 
 app.get("/data", async (req, res, next) => {
