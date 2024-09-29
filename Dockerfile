@@ -2,19 +2,22 @@
     FROM node:22 AS base
     WORKDIR /myFolder
     COPY package.json .
-    COPY . .
-    EXPOSE 4000
+
 
 
 
 FROM base AS development
 
 RUN npm install
+COPY . .
+EXPOSE 4000
 
 
 FROM base AS production
 
 RUN npm install --production
+COPY . .
+EXPOSE 4000
 
 
 
