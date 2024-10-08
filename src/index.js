@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const redis = require("redis");
 const pg = require("pg");
+const os = require("os");
 
 const port = 4000 || process.env.PORT;
 const app = express();
@@ -56,7 +57,8 @@ pgClient
 // app listen
 app.get("/", (req, res, next) => {
   redisClient.set("products", "cached products");
-  res.send("<h1>Welcome!  prod from aws - docker hub </h1>");
+  console.log("trafic from ", os.hostname());
+  res.send("<h1>Welcome!  watchtower  </h1>");
 });
 
 app.get("/data", async (req, res, next) => {
